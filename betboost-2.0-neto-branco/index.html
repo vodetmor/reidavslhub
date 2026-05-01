@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz BetBoost 2.0 — Descubra seu perfil de apostador</title>
+  <meta name="description" content="Descubra em 2 minutos o padrão que está travando sua banca. Quiz gratuito do BetBoost 2.0 por Neto Gonçalves.">
+  <link rel="icon" href="https://lp.metodoacpte.com/wp-content/uploads/2023/11/cropped-simbolo3-32x32.png" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css?v=2.3">
+  <link rel="stylesheet" href="css/base.css?v=2.3">
+  <link rel="stylesheet" href="css/components.css?v=2.3">
+  <link rel="stylesheet" href="css/quiz.css?v=2.3">
+</head>
+<body>
+  <div class="quiz-app" id="quizApp">
+
+    <!-- ═══ BACKGROUND LAYERS (viewport-wide) ═══ -->
+    <div class="screen-bg active" id="bg-intro"></div>
+    <div class="screen-bg" id="bg-question"></div>
+    <div class="screen-bg" id="bg-pre-result"></div>
+    <div class="screen-bg" id="bg-post-vsl"></div>
+    <div class="screen-bg" id="bg-result"></div>
+    <div class="screen-bg" id="bg-cta"></div>
+
+    <!-- ═══ HEADER ═══ -->
+    <header class="quiz-header">
+      <img src="assets/img/logo.svg" alt="Qual Placar" class="quiz-logo" id="quizLogo">
+    </header>
+
+    <!-- ═══ TELA 1: INTRO ═══ -->
+    <section class="screen screen-intro active" id="screen-intro">
+      <span class="badge badge-estagnado intro-badge">🧠 Quiz Diagnóstico — 2 minutos</span>
+      <h1 class="intro-headline">
+        Por que sua banca
+        <span class="highlight">não cresce?</span>
+      </h1>
+      <p class="intro-subtitle">
+        Responda 7 perguntas rápidas e descubra o padrão oculto que está travando seus resultados nas apostas esportivas.
+      </p>
+      <div class="intro-neto">
+        <img src="assets/img/neto-goncalves.webp" alt="Neto Gonçalves" class="intro-neto-img">
+        <div class="intro-neto-info">
+          <div class="intro-neto-name">Neto Gonçalves</div>
+          <div class="intro-neto-title">Trader Profissional · +31k alunos · 10 anos</div>
+        </div>
+      </div>
+      <div class="intro-cta">
+        <button class="btn-cta glow-pulse" id="btnStart" aria-label="Começar quiz">
+          Quero descobrir meu erro agora
+        </button>
+      </div>
+      <div class="social-proof-micro">
+        <span>+31.000 apostadores ativos</span>
+        <span class="dot"></span>
+        <span>10 anos de consistência</span>
+      </div>
+    </section>
+
+    <!-- ═══ TELA 2-8: PERGUNTAS ═══ -->
+    <section class="screen screen-question" id="screen-question">
+      <div style="width:100%">
+        <div class="progress-label" id="progressLabel">Pergunta 1 de 7</div>
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="progressFill" style="width: 14.28%"></div>
+        </div>
+      </div>
+      <div class="question-content" id="questionContent">
+        <!-- Rendered by JS -->
+      </div>
+      <div class="social-proof-micro">
+        <span>+31.000 apostadores já fizeram este diagnóstico</span>
+      </div>
+    </section>
+
+    <!-- ═══ TELA 9: PRÉ-RESULTADO ═══ -->
+    <section class="screen screen-pre-result" id="screen-pre-result">
+      <!-- Loading phase -->
+      <div class="loading-container" id="loadingPhase">
+        <div class="loading-bars">
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <h2 class="loading-title">Analisando seu perfil...</h2>
+      </div>
+      <!-- Diagnosis phase (hidden initially) -->
+      <div class="diagnosis-container" id="diagnosisPhase" style="display:none">
+        <h2 class="diagnosis-title">Diagnóstico de entrada</h2>
+        <p class="diagnosis-subtitle" style="color:var(--color-text-secondary); margin-bottom:var(--space-base); font-size:var(--font-size-body);">Com base nas suas respostas, já dá para identificar o padrão.</p>
+        <div class="diagnosis-bullets">
+          <div class="diagnosis-bullet"><span class="bullet-icon">✕</span> Não é falta de esforço. Não é falta de vontade. E provavelmente também não é falta de conhecimento sobre futebol.</div>
+          <div class="diagnosis-bullet"><span class="bullet-icon">✕</span> O que trava a maioria de quem aposta é quase sempre a mesma combinação: entrar no mercado errado, sem filtro, sem regra de saída e sem um método que funcione mesmo nos dias de pressão.</div>
+          <div class="diagnosis-bullet result-bullet"><span class="bullet-icon">→</span> O resultado disso é previsível: banca que não cresce, sequências de red que apagam semanas de trabalho e a sensação de que você está sempre começando do zero.</div>
+        </div>
+        <p class="diagnosis-highlight">
+          <strong class="text-green">Existe uma forma diferente de operar.</strong><br>
+          <span style="color:var(--color-text-secondary)">Quer ver como funciona em apenas 5 minutos?</span>
+        </p>
+        <div class="diagnosis-cta-wrap">
+          <button class="btn-cta" id="btnSeeHow">
+            ▶ Ver como funciona
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TELA 10: VSL ═══ -->
+    <section class="screen screen-vsl" id="screen-vsl">
+      <div class="vsl-placeholder" id="vslPlayer">
+        <div class="vsl-placeholder-icon">▶</div>
+        <div class="vsl-placeholder-text">VSL de 5min Aqui</div>
+        <div class="caption text-muted">(Vídeo será inserido quando disponível)</div>
+      </div>
+      <div class="vsl-btn-container">
+        <button class="btn-cta" id="btnSeeResult">
+          Ver meu resultado →
+        </button>
+      </div>
+    </section>
+
+    <!-- ═══ TELA 11: PÓS-VSL ═══ -->
+    <section class="screen screen-post-vsl" id="screen-post-vsl">
+      <h2 class="post-vsl-title">Veja os resultados de quem <span class="text-green">já está dentro</span></h2>
+      <div class="proof-swiper" id="proofSwiper">
+        <div class="swiper-track" id="swiperTrack">
+          <div class="swiper-slide">
+            <div class="video-player">
+              <video controls preload="metadata" playsinline>
+                <source src="assets/depoimentos/WhatsApp Video 2026-04-30 at 12.57.26.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="video-player">
+              <video controls preload="metadata" playsinline>
+                <source src="assets/depoimentos/WhatsApp Video 2026-04-30 at 12.57.27.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="video-player">
+              <video controls preload="metadata" playsinline>
+                <source src="assets/depoimentos/WhatsApp Video 2026-04-30 at 12.57.28.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="video-player">
+              <video controls preload="metadata" playsinline>
+                <source src="assets/depoimentos/WhatsApp Video 2026-04-30 at 12.57.29.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-dots" id="swiperDots"></div>
+      </div>
+      <button class="btn-cta" id="btnSeeDiagnosis">
+        Ver meu diagnóstico →
+      </button>
+    </section>
+
+    <!-- ═══ TELA 12: RESULTADO PERSONALIZADO ═══ -->
+    <section class="screen screen-result" id="screen-result">
+      <div class="result-badge-wrap">
+        <span class="badge" id="resultBadge"></span>
+      </div>
+      <h2 class="result-title">Seu perfil: <span class="result-profile-type" id="resultProfileType"></span></h2>
+      <p class="result-diagnosis" id="resultDiagnosis"></p>
+      <div class="result-method">
+        <h4 class="result-method-title">O que muda com método:</h4>
+        <div class="result-method-list" id="resultMethodList"></div>
+      </div>
+      <div class="result-depoimentos proof-swiper" id="resultDepoimentos">
+        <div class="swiper-track" id="resultSwiperTrack"></div>
+        <div class="swiper-dots" id="resultSwiperDots"></div>
+      </div>
+      <p class="result-offer-intro" id="resultOfferIntro"></p>
+      <button class="btn-cta" id="btnSeeOffer" style="max-width:100%">
+        Ver a oferta do BetBoost →
+      </button>
+    </section>
+
+    <!-- ═══ TELA 13: CTA FINAL ═══ -->
+    <section class="screen screen-cta" id="screen-cta">
+      <h2 class="cta-title">Você viu o diagnóstico. Agora veja o que o <span class="text-green">BetBoost</span> entrega.</h2>
+      <p class="cta-subtitle">Método validado em mais de 8.500 jogos. Sistema, filtro, grupos e treinamento — tudo em um só lugar.</p>
+
+      <div class="cta-mockup-section">
+        <img src="assets/img/mockup-betboost.webp" alt="BetBoost 2.0" class="cta-mockup-img" loading="lazy">
+      </div>
+
+      <div class="cta-benefits">
+        <div class="benefit-item"><span class="check-icon">✅</span><span class="benefit-text">Treinamento completo passo a passo em videoaulas práticas</span></div>
+        <div class="benefit-item"><span class="check-icon">✅</span><span class="benefit-text">Sistema exclusivo de escolha de jogos com filtro de entrada</span></div>
+        <div class="benefit-item"><span class="check-icon">✅</span><span class="benefit-text">8 grupos privados com indicações diárias e alertas em tempo real</span></div>
+        <div class="benefit-item"><span class="check-icon">✅</span><span class="benefit-text">Acesso total às ferramentas do Qual Placar</span></div>
+        <div class="benefit-item"><span class="check-icon">✅</span><span class="benefit-text">Controle de risco com stop loss definido</span></div>
+        <div class="benefit-item"><span class="check-icon">✅</span><span class="benefit-text">Perda máxima de 50% da entrada</span></div>
+        <div class="benefit-item"><span class="check-icon">✅</span><span class="benefit-text">Histórico de mais de 8.500 jogos testados</span></div>
+        <div class="benefit-item"><span class="check-icon">✅</span><span class="benefit-text">Suporte e acompanhamento direto</span></div>
+      </div>
+
+      <div class="cta-bonus-section">
+        <h4 class="cta-bonus-title">🎁 Bônus inclusos:</h4>
+        <div class="cta-bonus-list">
+          <div class="bonus-card"><span class="bonus-name">Sistema de análise AV</span><span class="bonus-value">R$47</span></div>
+          <div class="bonus-card"><span class="bonus-name">Gerador de múltiplas com taxa validada</span><span class="bonus-value">R$97</span></div>
+          <div class="bonus-card"><span class="bonus-name">Banco de dados para trader esportivo</span><span class="bonus-value">R$37</span></div>
+          <div class="bonus-card"><span class="bonus-name">+20 grupos de dicas e alertas</span><span class="bonus-value">R$57</span></div>
+          <div class="bonus-card"><span class="bonus-name">+18 estratégias prontas pré-jogo e ao vivo</span><span class="bonus-value">R$67</span></div>
+        </div>
+        <div class="cta-bonus-total">
+          <span class="cta-bonus-total-label">Total em bônus:</span>
+          <span class="cta-bonus-total-value">R$305</span>
+        </div>
+      </div>
+
+      <div class="cta-metrics">
+        <div class="metric-card"><div class="metric-value">+31k</div><div class="metric-label">Alunos ativos</div></div>
+        <div class="metric-card"><div class="metric-value">95%+</div><div class="metric-label">Taxa de acerto</div></div>
+        <div class="metric-card"><div class="metric-value">9-13%</div><div class="metric-label">Ganho por entrada</div></div>
+        <div class="metric-card"><div class="metric-value">50%</div><div class="metric-label">Perda máx. controlada</div></div>
+        <div class="metric-card"><div class="metric-value">10</div><div class="metric-label">Anos de consistência</div></div>
+        <div class="metric-card"><div class="metric-value">8.500+</div><div class="metric-label">Jogos testados</div></div>
+      </div>
+
+      <!-- Prova Social Completa -->
+      <div class="proof-section">
+        <h3 class="proof-section-title">O que os alunos estão dizendo</h3>
+        <!-- Depoimentos Carousel -->
+        <div class="proof-swiper" id="ctaSwiper">
+          <div class="swiper-track" id="ctaSwiperTrack">
+            <!-- Filled by JS -->
+          </div>
+          <div class="swiper-dots" id="ctaSwiperDots"></div>
+        </div>
+        <!-- Audio -->
+        <div class="audio-player-custom" style="margin-top:var(--space-lg)" id="customAudio">
+          <audio id="nativeAudio" preload="metadata">
+            <source src="assets/depoimentos/WhatsApp Audio 2026-04-30 at 13.19.27.ogg" type="audio/ogg">
+          </audio>
+          <button class="audio-play-btn" id="audioPlayBtn" aria-label="Play/Pause">
+            <svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+            <svg class="icon-pause" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" fill="currentColor"/></svg>
+          </button>
+          <div class="audio-info">
+            <div class="audio-title">🎙️ Depoimento em áudio</div>
+            <div class="audio-progress">
+              <div class="audio-progress-bar" id="audioProgressBar">
+                <div class="audio-progress-fill" id="audioProgressFill"></div>
+              </div>
+            </div>
+            <div class="audio-time">
+              <span id="audioCurrentTime">0:00</span> / <span id="audioDuration">0:00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-btn-container">
+        <a href="https://lp.metodoacpte.com/betboost/" target="_blank" rel="noopener" class="btn-cta glow-pulse" id="btnBuy">
+          Quero entrar no BetBoost agora
+        </a>
+        <span class="cta-sub-text">Acesso imediato após a compra · Método validado · 31 mil alunos ativos</span>
+      </div>
+
+      <p class="cta-ps">
+        <strong>P.S.</strong> Se você chegou até aqui e reconheceu seu padrão nas perguntas, já é um sinal. A maioria das pessoas que não consegue crescer a banca não perde por falta de esforço. Perde porque nunca teve um sistema que funcione mesmo quando vêm a pressão, a pressa e o impulso. O BetBoost foi criado para isso. Mais de 31 mil alunos já estão dentro. <strong class="text-green">Agora é a sua vez.</strong>
+      </p>
+    </section>
+
+    <!-- ═══ LIGHTBOX ═══ -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <button class="lightbox-close" aria-label="Fechar">✕</button>
+      <img src="" alt="Depoimento ampliado" id="lightboxImg">
+    </div>
+
+  </div>
+
+  <script src="js/profile-calc.js?v=2.3"></script>
+  <script src="js/quiz-engine.js?v=2.3"></script>
+  <script src="js/animations.js?v=2.3"></script>
+</body>
+</html>
